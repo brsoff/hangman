@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>  
+
+<title>hangman</title>
+
+<link href='http://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Londrina+Solid' rel='stylesheet' type='text/css'>
+
+<style>
+* {font-weight:normal;}
+body {font-family: 'Londrina Shadow', cursive;}
+#main {min-height:200px;line-height:30px;width:60%;margin:0 auto;text-align:center;margin-top:50px;}
+p {margin:0 0 12px 0;}
+#output {border:1px solid #ccc;min-height:100px;width:60%;margin:0 auto;margin-top:20px;overflow:auto;}
+p#tries {color:red;font-size:22px;display:none;font-family: 'Londrina Solid', cursive;line-height: 22px;}
+input[type="checkbox"] {margin-left:5px;}
+h1, h2, h3, h4 {margin:3px 0px;}
+h1 {font-size:56px;line-height: 56px;}
+h2{font-size:48px;line-height: 48px;font-family: 'Londrina Solid', cursive;}
+h3 {font-size:40px;line-height: 40px;}
+h4 {font-size:34px;line-height: 34px;}
+#status {font-family: 'Londrina Solid', cursive;margin:0 auto;margin-top:20px;padding:1px 0px;width:300px;background:#f7f7f7;min-height:32px;display:none;font-size:28px;}
+#status p {margin:2px 0px;}
+#resetButton {display:none;margin: 20px 0;}
+#the_letters {display:none;font-size:34px;line-height: 42px;width:300px;margin:0 auto;}
+.red {color:red;}
+.green {color:green;}
+.black {color:black;}
+#text_guess {display:none;}
+#guess_button {display:none;}
+.possible {font-size:24px;display:none;}
+button {font-size:17px;padding:8px 12px;font-family: 'Londrina Solid', cursive;}
+button:hover {cursor: pointer;opacity:.7;}
+button:active {position: relative; top: 2px;}
+input {font-size:14px;padding:8px 12px;}
+#word_output {font-size:26px;margin:20px 0px;}
+h4#num_letters {font-family: 'Londrina Solid', cursive;margin:20px 0;}
+input[type="checkbox"] {display:none;}
+#the_letters label {margin: 0 5px;}
+#the_letters label:hover {cursor: pointer;}
+#start {margin: 20px 0 0 0 ;}
+.score, .alltries {font-family: 'Londrina Solid', cursive;}
+</style>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" ></script>
+<script src="/js/scripts.js" ></script>
+
+
+</head>
+
+<body>
+
+
+<div id="main">
+    
+    <h1>guess the animal</h1>
+    <button id="start">play</button>
+    <h4 id="num_letters"></h4>
+    <div id="the_letters">
+    <label><input type="checkbox" id="a" value="a" /><span>a</span></label>
+    <label><input type="checkbox" id="b" value="b" /><span>b</span></label>
+    <label><input type="checkbox" id="c" value="c" /><span>c</span></label>
+    <label><input type="checkbox" id="d" value="d" /><span>d</span></label>
+    <label><input type="checkbox" id="e" value="e" /><span>e</span></label>
+    <label><input type="checkbox" id="f" value="f" /><span>f</span></label>
+    <label><input type="checkbox" id="g" value="g" /><span>g</span></label>
+    <label><input type="checkbox" id="h" value="h" /><span>h</span></label>
+    <label><input type="checkbox" id="i" value="i" /><span>i</span></label>
+    <label><input type="checkbox" id="j" value="j" /><span>j</span></label>
+    <label><input type="checkbox" id="k" value="k" /><span>k</span></label>
+    <label><input type="checkbox" id="l" value="l" /><span>l</span></label>
+    <label><input type="checkbox" id="m" value="m" /><span>m</span></label>
+    <label><input type="checkbox" id="n" value="n" /><span>n</span></label>
+    <label><input type="checkbox" id="o" value="o" /><span>o</span></label>
+    <label><input type="checkbox" id="p" value="p" /><span>p</span></label>
+    <label><input type="checkbox" id="q" value="q" /><span>q</span></label>
+    <label><input type="checkbox" id="r" value="r" /><span>r</span></label>
+    <label><input type="checkbox" id="s" value="s" /><span>s</span></label>
+    <label><input type="checkbox" id="t" value="t" /><span>t</span></label>
+    <label><input type="checkbox" id="u" value="u" /><span>u</span></label>
+    <label><input type="checkbox" id="v" value="v" /><span>v</span></label>
+    <label><input type="checkbox" id="w" value="w" /><span>w</span></label>
+    <label><input type="checkbox" id="x" value="x" /><span>x</span></label>
+    <label><input type="checkbox" id="y" value="y" /><span>y</span></label>
+    <label><input type="checkbox" id="z" value="z" /><span>z</span></label>
+    </div>
+        <div id="status"></div>
+        
+        <div id="word">
+            <p id="word_output"></p>
+            <p><input type="text" id="text_guess" /> <button id="guess_button">guess</button></p>
+            <p id="tries">number of tries left: <span id="tries_num"></span></p>
+        </div>
+
+
+        <div id="reset">
+            <button id="resetButton">play again</button>
+        </div>
+
+        <div>
+            <h2>Your score: <span class="score"></span> <span class="possible">out of a possible</span> <span class="alltries"></span></h2>
+        </div>
+        
+</div>
+
+</body>
+
+</html>
+
+
+
+
