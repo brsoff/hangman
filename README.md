@@ -1,1 +1,1 @@
-A simple hangman project to learn more about Javascript.
+A simple hangman game to learn more about Javascript.
