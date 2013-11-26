@@ -1,59 +1,19 @@
 <!DOCTYPE html>
 
 <html>
-
 <head>  
-
 <title>hangman</title>
 
 <link href='http://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Londrina+Solid' rel='stylesheet' type='text/css'>
-
-<style>
-* {font-weight:normal;}
-body {font-family: 'Londrina Shadow', cursive;}
-#main {min-height:200px;line-height:30px;width:60%;margin:0 auto;text-align:center;margin-top:50px;}
-p {margin:0 0 12px 0;}
-#output {border:1px solid #ccc;min-height:100px;width:60%;margin:0 auto;margin-top:20px;overflow:auto;}
-p#tries {color:red;font-size:22px;display:none;font-family: 'Londrina Solid', cursive;line-height: 22px;}
-input[type="checkbox"] {margin-left:5px;}
-h1, h2, h3, h4 {margin:3px 0px;}
-h1 {font-size:56px;line-height: 56px;}
-h2{font-size:48px;line-height: 48px;font-family: 'Londrina Solid', cursive;}
-h3 {font-size:40px;line-height: 40px;}
-h4 {font-size:34px;line-height: 34px;}
-#status {font-family: 'Londrina Solid', cursive;margin:0 auto;margin-top:20px;padding:1px 0px;width:300px;background:#f7f7f7;min-height:32px;display:none;font-size:28px;}
-#status p {margin:2px 0px;}
-#resetButton {display:none;margin: 20px 0;}
-#the_letters {display:none;font-size:34px;line-height: 42px;width:300px;margin:0 auto;}
-.red {color:red;}
-.green {color:green;}
-.black {color:black;}
-#text_guess {display:none;}
-#guess_button {display:none;}
-.possible {font-size:24px;display:none;}
-button {font-size:17px;padding:8px 12px;font-family: 'Londrina Solid', cursive;}
-button:hover {cursor: pointer;opacity:.7;}
-button:active {position: relative; top: 2px;}
-input {font-size:14px;padding:8px 12px;}
-#word_output {font-size:26px;margin:20px 0px;}
-h4#num_letters {font-family: 'Londrina Solid', cursive;margin:20px 0;}
-input[type="checkbox"] {display:none;}
-#the_letters label {margin: 0 5px;}
-#the_letters label:hover {cursor: pointer;}
-#start {margin: 20px 0 0 0 ;}
-.score, .alltries {font-family: 'Londrina Solid', cursive;}
-</style>
-
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
 <script src="js/jquery-1.10.2.min.js" ></script>
 <script src="js/jquery-ui.js" ></script>
 <script src="js/scripts.js" ></script>
 
-
 </head>
 
 <body>
-
 
 <div id="main">
     
@@ -110,7 +70,3 @@ input[type="checkbox"] {display:none;}
 </body>
 
 </html>
-
-
-
-
