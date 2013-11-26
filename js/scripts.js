@@ -15,6 +15,8 @@ $(document).ready(function () {
 
   $(".score").text(score);
 
+// game start or reset play
+
     function resetPlay() {
       notSolved = true;
       $("#text_guess").val("");
@@ -22,7 +24,6 @@ $(document).ready(function () {
       $("input[type=checkbox]").prop("disabled", false).prop("checked", false).next( "span").css("color", "#000000");
       $("#guess_button").prop("disabled", false);
       $("#status").text("").animate({backgroundColor: "#cccccc"});
-
       $("p#tries, #the_letters, #status, #text_guess, #guess_button").fadeIn();
 
       randomNum = Math.random();
@@ -36,22 +37,22 @@ $(document).ready(function () {
       for (var i = 0; i < word.length; i++) {
         blanks.push("_");
       }
-
       $("#word_output").text(blanks.join(" "));
       $("span#tries_num").text(tries);
 
       console.log("new word: " + word)
     }
 
+// click on the start button or reset button to start or replay the game
 
   $("#start, #resetButton").on("click", function () {
     $(this).hide();
     resetPlay();
   });
 
+// choosing the letters
 
   $("input[type=checkbox]").click(function () {
-
 
     var letter = $(this).val();
     var letterBox = $(this);
@@ -91,7 +92,6 @@ $(document).ready(function () {
   });
 
 
-
   $("#guess_button").on("click", function () {
     guess = $("#text_guess").val();
     console.log("word: " + word);
@@ -110,13 +110,28 @@ $(document).ready(function () {
   $("span#tries_num").text(tries);
   });
 
-
-
+// when solved
 
   function isSolved () {
         $("#status").text("you solved it!").animate({backgroundColor: "#82FA58"}, 100);
         score = score + 50;
         $(".score").text(score);
+        gameEnd();
+  }
+
+// when unsolved
+
+  function outOfTries () {
+
+      score = score - 50;
+      $(".score").text(score);
+      $("#status").html("sorry, you're out of tries! The word was <br><b> " + word + "</b>").animate({backgroundColor: "#F5A9A9"}, 100);
+      gameEnd();
+  }
+
+// when either solved or unsolved to end game
+
+  function gameEnd () {
         $("input[type=checkbox]").prop("disabled", true).prop("checked", false);
         $("#guess_button").prop("disabled", true);
         $("#resetButton").show(100);
@@ -126,21 +141,7 @@ $(document).ready(function () {
         $("span.alltries").text(totalTries * 50);
   }
 
-
-  function outOfTries () {
-
-      score = score - 50;
-      $(".score").text(score);
-      $("#status").html("sorry, you're out of tries! The word was <br><b> " + word + "</b>").animate({backgroundColor: "#F5A9A9"}, 100);
-      $("input[type=checkbox]").prop("disabled", true).prop("checked", false);
-      $("#guess_button").prop("disabled", true);
-      $("#resetButton").show(100);
-      scoreColor();
-      totalTries++
-      $(".possible").fadeIn(100)
-      $("span.alltries").text(totalTries * 50);
-  }
-
+// change score color
 
   function scoreColor () {
     if (score < 0) {
