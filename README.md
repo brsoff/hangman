@@ -1,0 +1,1 @@
+A simple hangman project to learn more about Javascript.
